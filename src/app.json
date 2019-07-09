@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/home/main",
+    "pages/notes/main",
+    "pages/photo/main",
+    "pages/my/main",
+    "pages/index/main",
+    "pages/logs/main",
+    "pages/counter/main",
+    "pages/contact/main",
+    "pages/feedback/main",
+    "pages/raiders/main",
+    "pages/detail/main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#015249",
+    "navigationBarTitleText": "小驴宝",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999",
+    "backgroundColor": "#fafafa",
+    "selectedColor": "#015249",
+    "borderStyle": "white",
+
+    "list": [{
+      "text": "首页",
+      "pagePath": "pages/home/main",
+      "iconPath": "static/tabs/home.png",
+      "selectedIconPath": "static/tabs/home_active.png"
+    }, {
+      "text": "旅行",
+      "pagePath": "pages/notes/main",
+      "iconPath": "static/tabs/notes.png",
+      "selectedIconPath": "static/tabs/notes_active.png"
+    },{
+      "text": "美图",
+      "pagePath": "pages/photo/main",
+      "iconPath": "static/tabs/photo.png",
+      "selectedIconPath": "static/tabs/photo_active.png"
+    }, {
+      "text": "我的",
+      "pagePath": "pages/my/main",
+      "iconPath": "static/tabs/my.png",
+      "selectedIconPath": "static/tabs/my_active.png"
+    }]
+  }
+}

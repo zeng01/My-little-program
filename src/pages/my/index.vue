@@ -19,10 +19,10 @@
             <text>我的攻略</text>
             <text>></text>
         </navigator>
-        <view class="list">
+        <navigator url="pages/upload/main" class="list">
             <text>上传图片</text>
             <text>></text>
-        </view>
+        </navigator>
         <navigator url="/pages/feedback/main" class="list">
             <text>意见反馈</text>
             <text>></text>
@@ -54,11 +54,27 @@ export default {
           wx.getUserInfo({
             success: res => {
               this.userInfo = res.userInfo
+              wx.setStorageSync('userInfo',res.userInfo)
             }
           })
         }
       })
-    }
+    },
+    upload(){
+      wx.chooseImage({
+        success: function(res) {
+          const tempFilePaths = res.tempFilePaths
+          wx.saveFile({
+            tempFilePath: tempFilePaths[0],
+            success (res) {
+              const savedFilePath = res.savedFilePath
+              console.log(savedFilePath);
+              
+            }
+          })
+        }
+      })
+    },
   }
 }
 </script>

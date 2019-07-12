@@ -10,7 +10,8 @@
     "pages/contact/main",
     "pages/feedback/main",
     "pages/raiders/main",
-    "pages/detail/main"
+    "pages/detail/main",
+    "pages/upload/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,12 +1,21 @@
 <template>
     <div>
         <view class="photo">
-            <navigator
+            <view v-if="list.length==0" class="photo-tips">暂无图片</view>
+            <view v-else>
+                <navigator
               url="#"
               open-type="navigate"
               hover-class="none" v-for="item in imgList" :key="item.id" class="photo-img">
                 <img :src="item.imgUrl" alt="">
             </navigator>
+                <navigator
+              url="#"
+              open-type="navigate"
+              hover-class="none" v-for="(item, index) in list" :key="index" class="photo-img">
+                <img :src="item.filePath" alt="">
+            </navigator>
+            </view>
         </view>
     </div>
 </template>
@@ -33,63 +42,17 @@ export default {
                 {id:1015,imgUrl:'../../static/images/banner01.jpg'},
                 {id:1016,imgUrl:'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'}
             ],
+            list:[]
         }
     },
-
-//  // 下拉刷新
-//   onPullDownRefresh: function () {
-//     // 显示顶部刷新图标
-//     wx.showNavigationBarLoading();
-//     var that = this;
-//     wx.request({
-//     //   url: 'https://xxx/?page=0',
-//       method: "GET",
-//       header: {
-//         'content-type': 'application/text'
-//       },
-//       success: function (res) {
-//         that.setData({
-//           moment: res.data.data
-//         });
-//         // 隐藏导航栏加载框
-//         wx.hideNavigationBarLoading();
-//         // 停止下拉动作
-//         wx.stopPullDownRefresh();
-//       }
-//     })
-//   },
-
-//     /**
-//    * 页面上拉触底事件的处理函数
-//    */
-//   onReachBottom: function () {
-//     var that = this;
-//     // 显示加载图标
-//     wx.showLoading({
-//       title: '玩命加载中',
-//     })
-//     // 页数+1
-//     page = page + 1;
-//     wx.request({
-//       url: 'https://xxx/?page=' + page,
-//       method: "GET",
-//       // 请求头部
-//       header: {
-//         'content-type': 'application/text'
-//       },
-//       success: function (res) {
-//         // 回调函数
-//         var moment_list = that.data.moment;
-//         const oldData = that.data.moment;
-//         that.setData({
-//            moment:oldData.concat(res.data.data)
-//         })
-//         // 隐藏加载框
-//         wx.hideLoading();
-//       }
-//     })
- 
-//   }
+    onLoad() {
+        const that=this
+        wx.getSavedFileList({
+        success (res) {
+          that.list=res.fileList
+        }
+      })
+    }
 }
 </script>
 
@@ -103,11 +66,16 @@ export default {
             display: block;
             float: left;
             margin: 10px 0 0 10px;
+            border: 1px solid #f7f8f9;
             img{
              width: 100%;
             height: 100%;
             }
         }
-        
+        &-tips{
+            text-align: center;
+            margin: 20px 0;
+            color: #666;
+        }
     }
 </style>

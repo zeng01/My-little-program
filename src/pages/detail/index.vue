@@ -99,11 +99,6 @@ export default {
                 });
             }
         },
-        commentLogo(){
-            console.log(111);
-            
-            wx.navigateTo({ url: '/pages/my/main' });
-        },
         getUserInfo() {
       // 调用登录接口
       wx.login({

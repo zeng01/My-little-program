@@ -19,7 +19,7 @@
             <text>我的攻略</text>
             <text>></text>
         </navigator>
-        <navigator url="pages/upload/main" class="list">
+        <navigator url="/pages/upload/main" class="list">
             <text>上传图片</text>
             <text>></text>
         </navigator>
@@ -60,21 +60,7 @@ export default {
         }
       })
     },
-    upload(){
-      wx.chooseImage({
-        success: function(res) {
-          const tempFilePaths = res.tempFilePaths
-          wx.saveFile({
-            tempFilePath: tempFilePaths[0],
-            success (res) {
-              const savedFilePath = res.savedFilePath
-              console.log(savedFilePath);
-              
-            }
-          })
-        }
-      })
-    },
+    
   }
 }
 </script>
@@ -86,7 +72,7 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background: #77c9d4;
+        background: #57bc90;
         margin-bottom: 10px;
         .pic{
             width: 40px;
@@ -101,7 +87,7 @@ export default {
     }
     .list{
         height: 50px;
-        border-bottom:1px solid #77c9d4;
+        border-bottom:1px solid #57bc90;
         color: #999;
         padding: 0 20px;
         display: flex;

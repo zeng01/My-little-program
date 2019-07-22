@@ -32,7 +32,7 @@
             <view class="content-header">旅途风景/攻略</view>
             <navigator url="/pages/detail/main" open-type="navigate" hover-class="none" class="content-list" v-for="item in contentList" :key="item.id">
                 <view class="content-list-left">
-                    <img :src="item.imgUrl" alt="">
+                    <image lazy-load :src="item.imgUrl" alt=""/>
                 </view>
                 <view class="content-list-right">
                     <view class="title">{{item.title}}</view>
@@ -156,10 +156,10 @@ swiper{
 .content{
     margin: 20px 10px;
     .content-header{
-        height: 30px;
+        height: 40px;
         font-size: 16px;
-        background: #77c9d4;
-        line-height: 30px;
+        background: #57bc90;
+        line-height: 40px;
         padding: 0 10px;
         color:#fff;
 
@@ -172,7 +172,7 @@ swiper{
             height: 80px;
             float: left;
             margin-bottom: 20px;
-            img{
+            image{
                 width:100%;
                 height: 100%;
             }

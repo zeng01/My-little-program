@@ -7,13 +7,13 @@
               url="#"
               open-type="navigate"
               hover-class="none" v-for="item in imgList" :key="item.id" class="photo-img">
-                <img :src="item.imgUrl" alt="">
+                <image lazy-load :src="item.imgUrl" alt=""/>
             </navigator>
                 <navigator
               url="#"
               open-type="navigate"
               hover-class="none" v-for="(item, index) in list" :key="index" class="photo-img">
-                <img :src="item.filePath" alt="">
+                <image lazy-load :src="item.filePath" alt=""/>
             </navigator>
             </view>
         </view>
@@ -50,6 +50,8 @@ export default {
         wx.getSavedFileList({
         success (res) {
           that.list=res.fileList
+          console.log(res.fileList);
+          
         }
       })
     }
@@ -67,7 +69,7 @@ export default {
             float: left;
             margin: 10px 0 0 10px;
             border: 1px solid #f7f8f9;
-            img{
+            image{
              width: 100%;
             height: 100%;
             }

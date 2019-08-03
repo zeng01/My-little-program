@@ -10,22 +10,22 @@
         </swiper>
         <!-- 分类 -->
         <view class="nav">
-            <a href="#">
+            <navigator url="/pages/editor/main" class="nav-list">
                 <i class="iconfont icon-notes">&#xe600;</i>
                 <span>游记</span>
-            </a>
-            <a href="#">
+            </navigator>
+            <navigator url="/pages/notes/main" open-type="switchTab" class="nav-list">
                 <i class="iconfont icon-book"></i>
                 <span>攻略</span>
-            </a>
-            <a href="#">
+            </navigator>
+            <navigator url="/pages/search/main" href="#" class="nav-list">
                 <i class="iconfont icon-search"></i>
                 <span>搜索</span>
-            </a>
-            <a href="#">
+            </navigator>
+            <navigator url="/pages/contact/main" class="nav-list">
                 <i class="iconfont icon-email">&#xe636;</i>
                 <span>联系我们</span>
-            </a>
+            </navigator>
         </view>
         <!-- 内容 -->
         <view class="content">
@@ -135,7 +135,7 @@ swiper{
 }
 .nav{
     display: flex;
-    a{
+    &-list{
         flex:1;
         height:60px;
         margin:15px;

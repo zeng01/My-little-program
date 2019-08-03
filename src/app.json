@@ -11,7 +11,9 @@
     "pages/feedback/main",
     "pages/raiders/main",
     "pages/detail/main",
-    "pages/upload/main"
+    "pages/upload/main",
+    "pages/editor/main",
+    "pages/search/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

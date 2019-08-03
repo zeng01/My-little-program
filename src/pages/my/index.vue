@@ -1,5 +1,10 @@
 <template>
     <div>
+      <view class="showInfo" v-if="!userInfo.nickName">
+        <text>进入个人信息页面需打开授权</text>
+        <button class="weui-btn mini-btn" size="mini" type="default" open-type="getUserInfo" @getuserinfo="getUserInfo">授权获取信息</button>
+      </view>
+      <view v-else>
         <view class="header">
             <view class="user-avatar-bg" v-if="userInfo.avatarUrl">
                 <image class="pic" :src="userInfo.avatarUrl" />
@@ -8,7 +13,7 @@
                 <image @tap="getUserInfo" class="pic" :src="userInfo.avatarUrl || '/static/images/user.png'" />
             </view>
             <text class="name">{{ userInfo.nickName }}</text>
-            <button v-if="!userInfo.nickName" class="weui-btn mini-btn" size="mini" type="default" open-type="getUserInfo" @getuserinfo="getUserInfo">授权获取信息</button>
+            
             <!-- <button open-type="openSetting">打开授权设置页</button> -->
         </view>
         <navigator class="list">
@@ -31,6 +36,7 @@
             <text>联系我们</text>
             <text>></text>
         </navigator>
+        </view>
     </div>
 </template>
 
@@ -95,6 +101,18 @@ export default {
         align-items: center;
         font-size: 16px;
         margin-bottom: 10px;
+    }
+
+    .showInfo{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 400px;
+      font-size: 14px;
+      button{
+        margin-top: 10px;
+      }
     }
 </style>
 
